@@ -11,7 +11,7 @@ public:
     Carte();
     Carte(Culoare cul, Rank ran);
     ~Carte() = default;
-    int getCuloare() const;
-    int getRank() const;
+    Culoare getCuloare() const;
+    Rank getRank() const;
     friend std::ostream& operator<<(std::ostream& os, const Carte& carte);
 };

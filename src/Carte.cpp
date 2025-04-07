@@ -7,11 +7,11 @@ Carte::Carte() {
     rank = Rank();
 }
 
-int Carte::getCuloare() const {
+Culoare Carte::getCuloare() const {
     return culoare;
 }
 
-int Carte::getRank() const {
+Rank Carte::getRank() const {
     return rank;
 }
 
