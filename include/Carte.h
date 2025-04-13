@@ -14,4 +14,7 @@ public:
     Culoare getCuloare() const;
     Rank getRank() const;
     friend std::ostream& operator<<(std::ostream& os, const Carte& carte);
+    bool operator==(const Carte &carte) const;
+    bool operator>(const Carte &carte) const;
+    bool operator<(const Carte &carte) const;
 };

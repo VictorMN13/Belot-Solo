@@ -35,7 +35,27 @@ std::ostream& operator<<(std::ostream& os, const Carte& carte) {
     return os;
 }
 
+bool Carte::operator==(const Carte &carte) const {
+    return culoare == carte.culoare && rank == carte.rank;
+}
 
+bool Carte::operator>(const Carte &carte) const {
+    if (rank > carte.rank) {
+        return true;
+    } else if (rank == carte.rank) {
+        return culoare > carte.culoare;
+    } else
+        return false;
+}
+
+bool Carte::operator<(const Carte &carte) const {
+    if (rank < carte.rank) {
+        return true;
+    } else if (rank == carte.rank) {
+        return culoare < carte.culoare;
+    } else
+        return false;
+}
 
 
 
