@@ -4,7 +4,6 @@
 
 Pachet::Pachet() {
     std::cout << "constructor fara perametru Pachet" << std::endl;
-    carti = new std::vector<Carte>;
     carti->reserve(24);
     for (int i = pica; i <= inima; i++) {
         for (int j = nine; j <= ace; j++) {
@@ -16,7 +15,7 @@ Pachet::Pachet() {
 
 Pachet::~Pachet() {
     std::cout << "\ndestructor fara perametru Pachet" << std::endl;
-    delete carti;
+    //delete carti;
 }
 
 void Pachet::amestecare(std::vector<Carte>* carti) {
@@ -34,7 +33,19 @@ std::vector<Carte>* Pachet::getPachet() const {
 }
 
 void Pachet::taiere(std::vector<Carte>* carti, int x) {
-    std::rotate(carti->begin(), carti->begin() + x, carti->end());
+    std::rotate(carti->begin(), carti->begin() + (carti->size()-x), carti->end());
+}
+
+Pachet& Pachet::getInstance() {
+    static Pachet instance;
+    return instance;
+}
+
+std::ostream& operator<<(std::ostream& os, const Pachet& pachet) {
+    for (int i = 0; i <= pachet.carti->size() - 1; i++) {
+        os << (*pachet.carti)[i] << " ";
+    }
+    return os;
 }
 
 

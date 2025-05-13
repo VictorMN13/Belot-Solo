@@ -2,15 +2,22 @@
 #include <algorithm>
 
 PlayHand::PlayHand() {
-    carti = new std::vector<Carte>;
-    carti->reserve(6);
+    carti->reserve(8);
+}
+
+void PlayHand::add(const Carte x) {
+    carti->push_back(x);
 }
 
 PlayHand::~PlayHand() {
-    delete carti;
+    //delete carti;
 }
 
 void PlayHand::aranjare(std::vector<Carte>* carti) {
     std::sort(carti->begin(), carti->end());
 }
+
+std::vector<Carte>* PlayHand::getHand() const{
+    return this->getContainer();
+};
 

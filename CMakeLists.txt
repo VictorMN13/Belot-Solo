@@ -138,7 +138,17 @@ add_executable(${MAIN_EXECUTABLE_NAME} main.cpp ${SOURCES}
         src/ContainerCarti.cpp
         include/ContainerCarti.h
         src/PlayHand.cpp
-        include/PlayHand.h)
+        include/PlayHand.h
+        src/Player.cpp
+        include/Player.h
+        src/Om.cpp
+        include/Om.h
+        src/CardsWon.cpp
+        include/CardsWon.h
+        src/Bot.cpp
+        include/Bot.h
+        src/Runda.cpp
+        include/Runda.h)
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )
 # NOTE: RUN_SANITIZERS is optional, if it's not present it will default to true

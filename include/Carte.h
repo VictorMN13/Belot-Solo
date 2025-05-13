@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 
-enum Culoare {pica=0, trefla, diamant, inima};
+enum Culoare {pica=0, trefla, diamant, inima, none};
 enum Rank {nine=0, ten, jack, queen, king, ace};
 
 class Carte {

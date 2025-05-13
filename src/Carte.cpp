@@ -40,19 +40,19 @@ bool Carte::operator==(const Carte &carte) const {
 }
 
 bool Carte::operator>(const Carte &carte) const {
-    if (rank > carte.rank) {
+    if (culoare > carte.culoare) {
         return true;
-    } else if (rank == carte.rank) {
-        return culoare > carte.culoare;
+    } else if (culoare == carte.culoare) {
+        return rank > carte.rank;
     } else
         return false;
 }
 
 bool Carte::operator<(const Carte &carte) const {
-    if (rank < carte.rank) {
+    if (culoare < carte.culoare) {
         return true;
-    } else if (rank == carte.rank) {
-        return culoare < carte.culoare;
+    } else if (culoare == carte.culoare) {
+        return rank < carte.rank;
     } else
         return false;
 }

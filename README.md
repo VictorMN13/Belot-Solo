@@ -1,6 +1,7 @@
-# Nu primesc notă pentru că nu am pus titlu și descriere
+# BELOT-SOLO
 
-### Folosiți template-ul corespunzător grupei voastre!
+### Acest proiect este o implementare în consolă a jocului de "Belot".
+#### Belotul este un joc de carti 
 
 | Laborant  | Link template                                |
 |-----------|----------------------------------------------|
