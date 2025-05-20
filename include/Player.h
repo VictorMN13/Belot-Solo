@@ -2,6 +2,11 @@
 #include <iostream>
 #include "CardsWon.h"
 #include "PlayHand.h"
+#include <memory>
+#include "AtuStrategy.h"
+#include "JoacaStrategy.h"
+#include "Puncte.h"
+#include "Utilities.h"
 
 class Player {
 protected:
@@ -9,15 +14,25 @@ protected:
     static int id_gen;
     std::string name;
     PlayHand hand;
-    //CardsWon cardsWon;
+    CardsWon cardsWon;
+    std::unique_ptr<AtuStrategy> atu_strategy;
+    std::unique_ptr<JoacaStrategy> joaca_strategy;
 public:
-    Player(const std::string& _name = "Unknown"): id(id_gen), name(_name) {id_gen++;};
+    explicit Player(std::unique_ptr<AtuStrategy> atu_strategy, std::unique_ptr<JoacaStrategy> joaca_strategy, std::string name = "Unknown")
+        : id(id_gen),
+          name(std::move(name)),
+          atu_strategy(std::move(atu_strategy)), joaca_strategy(std::move(joaca_strategy)) {id_gen++;}
+
+    //Player(std::unique_ptr<AtuStrategy> strat, const std::string& _name = "Unknown"): id(id_gen), name(_name), atu_strategy(std::move(strat)) {id_gen++;};
     Player(const Player&) = delete;
     virtual ~Player() = default;
     void setHand(const PlayHand& _hand);
     PlayHand* getPHand();
+    CardsWon* getCardsWon();
+    void setAtuStrategy(std::unique_ptr<AtuStrategy> _atu_strategy);
+    void setJoacaStrategy(std::unique_ptr<JoacaStrategy> _joaca_strategy);
     virtual bool joacaAtu(Culoare) = 0;
     virtual Culoare alegeAtu(int) = 0;
-    //std::vector<int> combinatii() {};
+    virtual Carte joaca(std::vector<Carte>&, bool, Puncte&, Culoare atu, int) = 0;
 };
 

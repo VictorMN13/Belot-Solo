@@ -148,7 +148,22 @@ add_executable(${MAIN_EXECUTABLE_NAME} main.cpp ${SOURCES}
         src/Bot.cpp
         include/Bot.h
         src/Runda.cpp
-        include/Runda.h)
+        include/Runda.h
+        src/Puncte.cpp
+        include/Puncte.h
+        include/AtuStrategy.h
+        src/BotAtuStrategy.cpp
+        include/BotAtuStrategy.h
+        src/OmAtuStrategy.cpp
+        include/OmAtuStrategy.h
+        include/JoacaStrategy.h
+        src/BotJoacaStrategy.cpp
+        include/BotJoacaStrategy.h
+        src/Utilities.cpp
+        include/Utilities.h
+        src/OmJoacaStrategy.cpp
+        include/OmJoacaStrategy.h
+)
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )
 # NOTE: RUN_SANITIZERS is optional, if it's not present it will default to true

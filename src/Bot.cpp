@@ -1,35 +1,23 @@
 #include "../include/Bot.h"
-#include <map>
-#include <optional>
 
-bool Bot::joacaAtu(Culoare c) {
+
+bool Bot::joacaAtu(const Culoare c) {
     int count = 0;
     for (const auto& carte : (*hand.getHand())) {
         if (carte.getCuloare() == c)
             count++;
     }
-    return count >= 2;
+    return count >= 3;
 }
 
 Culoare Bot::alegeAtu(int id) {
-    std::map<Culoare, int> frecv;
-    for (const auto& carte : (*hand.getHand())) {
-        frecv[carte.getCuloare()]++;
-    }
-    int maxC = 0;
-    Culoare c;
-    for (auto x : frecv) {
-        if (x.second > maxC) {
-            maxC = x.second;
-            c = x.first;
-        }
-    }
-    if (maxC>=3)
-        return c;
-    else if (id == this->id)
-        return c;
-    else
-        return Culoare::none;
+    return atu_strategy->alegere(*getPHand(), id, this->id);
+}
+
+Carte Bot::joaca(std::vector<Carte>& pe_masa, bool atu_free, Puncte& pct, Culoare atu, int decl) {
+    Carte aux;
+    aux = joaca_strategy->miscare(pe_masa, atu_free, pct, atu, hand, id, decl);
+    return aux;
 }
 
 
