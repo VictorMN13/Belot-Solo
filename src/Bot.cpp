@@ -1,13 +1,7 @@
 #include "../include/Bot.h"
 
-
 bool Bot::joacaAtu(const Culoare c) {
-    int count = 0;
-    for (const auto& carte : (*hand.getHand())) {
-        if (carte.getCuloare() == c)
-            count++;
-    }
-    return count >= 3;
+    return atu_strategy->jucare(c, hand);
 }
 
 Culoare Bot::alegeAtu(int id) {

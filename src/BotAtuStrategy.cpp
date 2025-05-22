@@ -19,3 +19,13 @@ Culoare BotAtuStrategy::alegere(const PlayHand &hand, int idDealer, int idPlayer
     else
         return Culoare::none;
 }
+
+bool BotAtuStrategy::jucare(const Culoare c, PlayHand &hand) {
+    int count = 0;
+    for (const auto& carte : (*hand.getHand())) {
+        if (carte.getCuloare() == c)
+            count++;
+    }
+    return count >= 3;
+}
+

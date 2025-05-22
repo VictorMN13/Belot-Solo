@@ -17,6 +17,7 @@ protected:
     CardsWon cardsWon;
     std::unique_ptr<AtuStrategy> atu_strategy;
     std::unique_ptr<JoacaStrategy> joaca_strategy;
+    int pct_runda = 0;
 public:
     explicit Player(std::unique_ptr<AtuStrategy> atu_strategy, std::unique_ptr<JoacaStrategy> joaca_strategy, std::string name = "Unknown")
         : id(id_gen),
@@ -34,5 +35,7 @@ public:
     virtual bool joacaAtu(Culoare) = 0;
     virtual Culoare alegeAtu(int) = 0;
     virtual Carte joaca(std::vector<Carte>&, bool, Puncte&, Culoare atu, int) = 0;
+    void set_pct_runda(int _pct_runda);
+    std::string getName();
 };
 

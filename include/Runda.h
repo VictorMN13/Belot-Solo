@@ -4,6 +4,7 @@
 #include "Carte.h"
 #include "Puncte.h"
 #include "Utilities.h"
+#include <cmath>
 
 class Runda {
     std::vector<Player*> players;
@@ -19,4 +20,6 @@ public:
     static void impartireCarti(Runda&);
     static int tur(Runda&, int);
     void desfasoara();
+    int rezultate();
+    static void returnareCarti(Runda&);
 };

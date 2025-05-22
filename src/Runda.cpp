@@ -113,8 +113,62 @@ void Runda::desfasoara() {
     for (int i=0; i<8; i++) {
         int x = tur(*this, initiator);
         initiator = x;
-        std::cout << x << '\n';
-        std::cout << *players[x]->getCardsWon() << std::endl;
+        std::cout << "Tur castigat de jucatorul: " << players[x]->getName() << '\n';
+    }
+}
+
+int Runda::rezultate() {
+    int x1 = CardsWon::calcPuncte(*players[(declarant+1)%3]->getCardsWon(), puncte);
+    int x2 = CardsWon::calcPuncte(*players[(declarant+2)%3]->getCardsWon(), puncte);
+    x1 = std::round(x1/10.0);
+    x2 = std::round(x2/10.0);
+    int xD = 16 - x1 - x2;
+    if (xD == 0)
+        xD = -10;
+    if (x1 == 0)
+        x1 = -10;
+    if (x2 == 0)
+        x2 = -10;
+    std::cout << x1 << " " << x2 << " " << xD;
+    int maxim = xD;
+    maxim = std::max(maxim, x1);
+    maxim = std::max(maxim, x2);
+    if (maxim!=xD) {
+        if (maxim == x1) {
+            x1 += xD;
+            xD = -10;
+            players[declarant]->set_pct_runda(xD);
+            players[(declarant+1)%3]->set_pct_runda(x1);
+            players[(declarant+2)%3]->set_pct_runda(x2);
+            return (declarant + 1) % 3;
+        }
+        else {
+            x2 += xD;
+            xD = -10;
+            players[declarant]->set_pct_runda(xD);
+            players[(declarant+1)%3]->set_pct_runda(x1);
+            players[(declarant+2)%3]->set_pct_runda(x2);
+            return (declarant+2)%3;
+        }
+    } else {
+        players[declarant]->set_pct_runda(xD);
+        players[(declarant+1)%3]->set_pct_runda(x1);
+        players[(declarant+2)%3]->set_pct_runda(x2);
+        return declarant;
+    }
+    // mai ai de pus punctele undeva
+}
+
+void Runda::returnareCarti(Runda &r) {
+    Pachet& pachet = Pachet::getInstance();
+    std::vector<Carte>* pack = pachet.getPachet();
+    for (auto& p: r.players) {
+        CardsWon& c = *p->getCardsWon();
+        std::vector<Carte>& carti = c.get_carti();
+        while (!carti.empty()) {
+            pack->push_back(carti.back());
+            carti.pop_back();
+        }
     }
 }
 

@@ -36,6 +36,11 @@ int main() {
     Runda r(players1, 0);
     Runda::impartireCarti(r);
     r.desfasoara();
+    r.rezultate();
+    Runda::returnareCarti(r);
+    Pachet::aranjare(pachet);
+    std::cout << '\n';
+    std::cout << pachet;
     for (int i = 0; i < players1.size(); i++) {
         delete players1[i];
     }

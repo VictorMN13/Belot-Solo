@@ -24,3 +24,11 @@ Culoare OmAtuStrategy::alegere(const PlayHand &hand, int idDealer, int idPlayer)
     return map_input[s];
 }
 
+ bool OmAtuStrategy::jucare(const Culoare c, PlayHand &) {
+    int aux;
+    std::cout << "Joci acest atu?\n";
+    std::cin >> aux;
+    return aux!=0;
+    //lipsa exceptii
+ }
+

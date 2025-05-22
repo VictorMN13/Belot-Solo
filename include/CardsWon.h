@@ -1,5 +1,6 @@
 #pragma once
 #include "ContainerCarti.h"
+#include "Puncte.h"
 
 class CardsWon: public ContainerCarti {
 public:
@@ -11,5 +12,5 @@ public:
     std::vector<Carte>& get_carti() {
         return *carti;
     }
-    static void calcPuncte();
+    static int calcPuncte(CardsWon& cards, Puncte& pct);
 };

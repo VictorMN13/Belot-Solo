@@ -18,5 +18,6 @@ public:
     friend std::ostream& operator<<(std::ostream& os, const ContainerCarti& container);
     ContainerCarti& operator=(const ContainerCarti& other);
     ContainerCarti& operator+=(const ContainerCarti& other);
+    static void aranjare(const ContainerCarti& container);
 };
 

@@ -1,5 +1,7 @@
 #include "../include/ContainerCarti.h"
 
+#include <algorithm>
+
 std::ostream& operator<<(std::ostream& os, const ContainerCarti& container_carti) {
     for (int i = 0; i <= container_carti.carti->size() - 1; i++) {
         os << (*container_carti.carti)[i] << " ";
@@ -41,4 +43,9 @@ ContainerCarti& ContainerCarti::operator+=(const ContainerCarti &other) {
         }
     }
     return *this;
+}
+
+void ContainerCarti::aranjare(const ContainerCarti &container) {
+    std::vector<Carte>* c = container.getContainer();
+    std::sort(c->begin(), c->end());
 }

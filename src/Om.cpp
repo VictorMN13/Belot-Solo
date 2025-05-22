@@ -2,10 +2,7 @@
 #include <unordered_map>
 
 bool Om::joacaAtu(Culoare c) {
-    int aux;
-    std::cout << "Joci acest atu?\n";
-    std::cin >> aux;
-    return aux!=0;
+    return atu_strategy->jucare(c, hand);
 }
 
 void Om::afisareHand() {

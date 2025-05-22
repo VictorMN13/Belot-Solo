@@ -23,3 +23,11 @@ void Player::setAtuStrategy(std::unique_ptr<AtuStrategy> _atu_strategy) {
     atu_strategy = std::move(_atu_strategy);
 }
 
+void Player::set_pct_runda(int _pct_runda) {
+    pct_runda = _pct_runda;
+}
+
+std::string Player::getName() {
+    return name;
+}
+
