@@ -1,0 +1,34 @@
+♠ REGULILE JOCULUI BELOT - VERSIUNEA SOLO (3 JUCĂTORI) ♠
+
+1. Scopul jocului:
+   Fiecare jucător încearcă să strângă cât mai multe puncte prin câștigarea rundelor,
+   folosind cărți de valoare mare și prin strategii eficiente.
+
+2. Structura jocului:
+   - Jocul se desfășoară între 3 jucători: tu (jucătorul uman) și 2 boți.
+   - La începutul fiecărei runde, fiecărui jucător i se împart 5 cărți.
+   - Urmatoarea carte este cea care reprezinta posibilul atu.
+   - Jucătorul poate accepta sau refuza atuul. 
+   - Daca nimeni nu accepta atuul de pe masa, jucatorii pot alege ce atu vor sa joace.
+   - Daca nimeni nu alege nici un atu, dealerul e obligat sa aleaga atuul.
+   - Jucatorul care accepta/alege atuul "joaca runda".
+ 
+3. Desfășurarea unei ture:
+   - Jucătorul care începe joacă o carte.
+   - Ceilalți trebuie să respecte culoarea dacă au.
+   - Dacă nu au, sunt obligati sa mearga cu atu sau orice alta carte in lipsa atuului.
+   - Câștigă tura jucătorul cu cea mai mare carte conform regulilor de bătaie.
+   - Nu este permisa folosirea unui atu in prezenta altor alternative daca declarantul rundei nu a folosit inca un atu
+
+4. Punctaj:
+   - Fiecare carte are un punctaj asociat (ex: valetul de atu valorează cel mai mult).
+   - La sfârșitul rundei, punctele câștigate se adaugă fiecărui jucător dupa formula pct = round(pct/10).
+   - Jocul continuă până când un jucător acumulează 101 puncte sau mai mult.
+   - Daca delcarantul (cel care a ales atuul) nu a acumulat cele mai multe puncte, primeste -10, 
+     punctele sale fiind transferate catre jucatorul cu cele mai multe puncte.
+   - Daca un jucator la sfarsitul rundei are 0 puncte de asemenea primeste -10 
+
+5. Alte reguli:
+   - Nu este permisă alegerea unei cărți invalide.
+   - În cazul unei alegeri greșite, vei primi o penalizare de -10.
+   - Fii atent la atu și la cărțile deja jucate!

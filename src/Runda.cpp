@@ -36,9 +36,9 @@ void Runda::impartireCarti(Runda& r) {
     r.players[(r.dealer+2)%3]->setHand(p2);
     r.players[r.dealer]->setHand(p3);
     if (carti_r->back().getRank() != jack) {
-        std::cout << carti_r->back().getCuloare() << std::endl;
+        std::cout << "Cartea decizionala: " << carti_r->back() << std::endl;
         for (int i = r.dealer + 1; i <= r.dealer + 3; i++) {
-            std::cout << *(r.players[i % 3]->getPHand()) << std::endl;
+            //std::cout << *(r.players[i % 3]->getPHand()) << std::endl;
             if (r.players[i % 3]->joacaAtu(carti_r->back().getCuloare())) {
                 setAtu(r, carti_r->back().getCuloare());
                 setDeclarant(r, i % 3);
@@ -55,12 +55,12 @@ void Runda::impartireCarti(Runda& r) {
             }
         }
     } else {
-        std::cout << "BIZON";
+        std::cout << "BIZON\n";
         setDeclarant(r, (r.dealer+1)%3);
         setAtu(r,  carti_r->back().getCuloare());
     }
     r.puncte.set_pct(r.atu);
-    std::cout << r.atu << " " << r.declarant << std::endl;
+    std::cout << "Runda este jucata de: " << r.players[r.declarant]->getName() << " cu atu-ul: " << Carte::afisCuloare(r.atu) << "\n";
     for (int i=0; i<3; i++) {
         p1.add(carti_r->back());
         carti_r->pop_back();
@@ -73,11 +73,6 @@ void Runda::impartireCarti(Runda& r) {
     r.players[(r.dealer+1)%3]->setHand(p1);
     r.players[(r.dealer+2)%3]->setHand(p2);
     r.players[r.dealer]->setHand(p3);
-
-    std::cout << std::endl;
-    std::cout << p1 << std::endl;
-    std::cout << p2 << std::endl;
-    std::cout << p3 << std::endl;
 }
 
 int Runda::tur(Runda &r, int id_init) {
@@ -113,11 +108,11 @@ void Runda::desfasoara() {
     for (int i=0; i<8; i++) {
         int x = tur(*this, initiator);
         initiator = x;
-        std::cout << "Tur castigat de jucatorul: " << players[x]->getName() << '\n';
+        log.push_back("Tur castigat de jucatorul: "+players[x]->getName()+'\n');
     }
 }
 
-int Runda::rezultate() {
+void Runda::rezultate() {
     int x1 = CardsWon::calcPuncte(*players[(declarant+1)%3]->getCardsWon(), puncte);
     int x2 = CardsWon::calcPuncte(*players[(declarant+2)%3]->getCardsWon(), puncte);
     x1 = std::round(x1/10.0);
@@ -129,7 +124,7 @@ int Runda::rezultate() {
         x1 = -10;
     if (x2 == 0)
         x2 = -10;
-    std::cout << x1 << " " << x2 << " " << xD;
+    //std::cout << x1 << " " << x2 << " " << xD << "\n";
     int maxim = xD;
     maxim = std::max(maxim, x1);
     maxim = std::max(maxim, x2);
@@ -140,7 +135,6 @@ int Runda::rezultate() {
             players[declarant]->set_pct_runda(xD);
             players[(declarant+1)%3]->set_pct_runda(x1);
             players[(declarant+2)%3]->set_pct_runda(x2);
-            return (declarant + 1) % 3;
         }
         else {
             x2 += xD;
@@ -148,13 +142,11 @@ int Runda::rezultate() {
             players[declarant]->set_pct_runda(xD);
             players[(declarant+1)%3]->set_pct_runda(x1);
             players[(declarant+2)%3]->set_pct_runda(x2);
-            return (declarant+2)%3;
         }
     } else {
         players[declarant]->set_pct_runda(xD);
         players[(declarant+1)%3]->set_pct_runda(x1);
         players[(declarant+2)%3]->set_pct_runda(x2);
-        return declarant;
     }
     // mai ai de pus punctele undeva
 }
@@ -171,6 +163,15 @@ void Runda::returnareCarti(Runda &r) {
         }
     }
 }
+
+void Runda::afisPctRunda(Runda &r) {
+    std::cout << "Rezultatele rundei:\n";
+    for (auto& x: r.players) {
+        std::cout << x->getName() << ": " <<  x->get_pct_runda() << "\n";
+    }
+    std::cout << "\n";
+}
+
 
 
 

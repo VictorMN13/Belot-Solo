@@ -3,7 +3,7 @@
 #include <algorithm>
 
 Pachet::Pachet() {
-    std::cout << "constructor fara perametru Pachet" << std::endl;
+    //std::cout << "constructor fara perametru Pachet" << std::endl;
     carti->reserve(24);
     for (int i = pica; i <= inima; i++) {
         for (int j = nine; j <= ace; j++) {
@@ -14,7 +14,7 @@ Pachet::Pachet() {
 }
 
 Pachet::~Pachet() {
-    std::cout << "\ndestructor fara perametru Pachet" << std::endl;
+    //std::cout << "\ndestructor fara perametru Pachet" << std::endl;
     //delete carti;
 }
 

@@ -31,3 +31,8 @@ std::string Player::getName() {
     return name;
 }
 
+int Player::get_pct_runda() {
+    return pct_runda;
+}
+
+

@@ -36,6 +36,7 @@ public:
     virtual Culoare alegeAtu(int) = 0;
     virtual Carte joaca(std::vector<Carte>&, bool, Puncte&, Culoare atu, int) = 0;
     void set_pct_runda(int _pct_runda);
+    int get_pct_runda();
     std::string getName();
 };
 

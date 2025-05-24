@@ -12,6 +12,7 @@ public:
     Carte(Culoare cul, Rank ran);
     ~Carte() = default;
     Culoare getCuloare() const;
+    static std::string afisCuloare(Culoare c);
     Rank getRank() const;
     friend std::ostream& operator<<(std::ostream& os, const Carte& carte);
     bool operator==(const Carte &carte) const;

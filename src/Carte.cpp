@@ -57,6 +57,18 @@ bool Carte::operator<(const Carte &carte) const {
         return false;
 }
 
+std::string Carte::afisCuloare(Culoare c) {
+        switch (c) {
+            case pica: return "♠";
+            case trefla: return "♣";
+            case diamant: return "♦";
+            case inima: return "♥";
+            case none: return "fara culoare";
+            default: return "necunoscut";
+        }
+}
+
+
 
 
 

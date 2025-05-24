@@ -163,8 +163,11 @@ add_executable(${MAIN_EXECUTABLE_NAME} main.cpp ${SOURCES}
         include/Utilities.h
         src/OmJoacaStrategy.cpp
         include/OmJoacaStrategy.h
-        src/tIstoric.cpp
         include/tIstoric.h
+        src/Joc.cpp
+        include/Joc.h
+        src/Menu.cpp
+        include/Menu.h
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )
