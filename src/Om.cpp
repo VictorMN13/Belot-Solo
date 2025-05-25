@@ -45,9 +45,29 @@ Culoare Om::alegeAtu(int d) {
 }
 
 Carte Om::joaca(std::vector<Carte>& pe_masa, bool atu_free, Puncte& pct, Culoare atu, int decl) {
-    Carte aux;
-    aux = joaca_strategy->miscare(pe_masa, atu_free, pct, atu, hand, id, decl);
-    return aux;
+    if (pe_masa.empty()) {
+        std::cout << "Nu sunt carti pe masa\n";
+    } else {
+        for (auto x : pe_masa) {
+            std::cout << x << " ";
+        }
+        std::cout << "\n";
+    }
+
+    std::cout<< "Ce carte joci? Alege numarul cartii de la 1 la " << hand.getHand()->size() << "\n";
+    std::cout << hand << "\n";
+
+    while (true) {
+        try {
+            return joaca_strategy->miscare(pe_masa, atu_free, pct, atu, hand, id, decl);
+        }
+        catch (std::exception& e) {
+            std::cout << "Eroare: " << e.what() << "\nTe rog incearca din nou.\n";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+    }
+
 }
 
 

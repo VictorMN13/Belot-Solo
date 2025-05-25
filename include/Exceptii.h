@@ -39,7 +39,7 @@ public:
 class CuloareInvalidException : public std::exception {
 public:
     const char* what() const noexcept override {
-        return "Trebuia sa joci o carte din culoarea ceruta, dar nu ai respectat regula.";
+        return "Trebuia sa joci o carte din culoarea ceruta sau atu daca nu ai, dar nu ai respectat regula.";
     }
 };
 
