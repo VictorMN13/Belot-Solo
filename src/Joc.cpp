@@ -1,4 +1,12 @@
 #include "../include/Joc.h"
+#include "../include/BotJoacaStrategy.h"
+#include "../include/BotAtuStrategy.h"
+#include "../include/Runda.h"
+#include "../include/Bot.h"
+#include "../include/OmJoacaStrategy.h"
+#include "../include/OmAtuStrategy.h"
+#include "../include/Utilities.h"
+#include <algorithm>
 
 Joc::Joc(): pachet(Pachet::getInstance()) {
     round_g = 0;
@@ -61,7 +69,7 @@ void Joc::joacaRunda(int dealer) {
         points[i]->addSecond(players[i]->get_pct_runda());
     }
     log.push_back(new Istoric<int, std::vector<std::string>>((++round_g), r.getLog()));
-    std::cout << "==========" << Joc::round_g << std::endl;
+    //std::cout << "==========" << Joc::round_g << std::endl;
 }
 
 void Joc::fullGame() {
@@ -94,7 +102,7 @@ void Joc::fullGame() {
     std::cout << std::endl;
 }
 
-void Joc::modOm() {
+void Joc::modOm() const {
     int x;
     std::cout << "Tastati 1 daca vreti sa modificati modul de joc sau 0 altfel\n";
     std::cin >> x;

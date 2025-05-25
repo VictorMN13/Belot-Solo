@@ -1,7 +1,7 @@
 #pragma once
 #include "JoacaStrategy.h"
 
-class BotJoacaStrategy: public JoacaStrategy {
+class BotJoacaStrategy final : public JoacaStrategy {
 public:
     BotJoacaStrategy() = default;
     ~BotJoacaStrategy() override = default;

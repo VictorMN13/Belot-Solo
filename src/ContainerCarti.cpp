@@ -2,9 +2,9 @@
 
 #include <algorithm>
 
-std::ostream& operator<<(std::ostream& os, const ContainerCarti& container_carti) {
-    for (int i = 0; i <= container_carti.carti->size() - 1; i++) {
-        os << (*container_carti.carti)[i] << " ";
+std::ostream& operator<<(std::ostream& os, const ContainerCarti& container) {
+    for (int i = 0; i <= container.carti->size() - 1; i++) {
+        os << (*container.carti)[i] << " ";
     }
     return os;
 }

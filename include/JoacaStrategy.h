@@ -2,7 +2,7 @@
 #include "Carte.h"
 #include "PlayHand.h"
 #include "Puncte.h"
-#include "Utilities.h"
+//#include "Utilities.h"
 
 class JoacaStrategy {
 public:

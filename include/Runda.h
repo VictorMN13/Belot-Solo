@@ -3,7 +3,6 @@
 #include "Player.h"
 #include "Carte.h"
 #include "Puncte.h"
-#include "Utilities.h"
 #include <cmath>
 
 class Runda {
@@ -20,10 +19,10 @@ public:
     static void setAtu(Runda&, Culoare);
     static void setDeclarant(Runda&, int);
     static void impartireCarti(Runda&);
-    static void afisPctRunda(Runda&);
+    static void afisPctRunda(const Runda&);
     static int tur(Runda&, int);
     void desfasoara();
     void rezultate();
-    static void returnareCarti(Runda&);
+    static void returnareCarti(const Runda&);
     std::vector<std::string> getLog();
 };

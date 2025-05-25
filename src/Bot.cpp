@@ -8,9 +8,8 @@ Culoare Bot::alegeAtu(int id) {
     return atu_strategy->alegere(*getPHand(), id, this->id);
 }
 
-Carte Bot::joaca(std::vector<Carte>& pe_masa, bool atu_free, Puncte& pct, Culoare atu, int decl) {
-    Carte aux;
-    aux = joaca_strategy->miscare(pe_masa, atu_free, pct, atu, hand, id, decl);
+Carte Bot::joaca(std::vector<Carte>& pe_masa, const bool atu_free, Puncte& pct, const Culoare atu, const int decl) {
+    const Carte aux = joaca_strategy->miscare(pe_masa, atu_free, pct, atu, hand, id, decl);
     return aux;
 }
 

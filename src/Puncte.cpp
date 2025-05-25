@@ -1,4 +1,5 @@
 #include "../include/Puncte.h"
+#include "../include/Pachet.h"
 
 void Puncte::init() {
     const Pachet& p = Pachet::getInstance();

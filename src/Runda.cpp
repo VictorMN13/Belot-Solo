@@ -1,11 +1,11 @@
 #include "../include/Runda.h"
-
-#include "../include/OmJoacaStrategy.h"
+//#include "../include/OmJoacaStrategy.h"
 #include "../include/Pachet.h"
 #include "../include/PlayHand.h"
 #include "../include/Player.h"
-#include "../include/Om.h"
-#include "../include/Bot.h"
+//#include "../include/Om.h"
+//#include "../include/Bot.h"
+#include "../include/Utilities.h"
 
 Runda::Runda(const std::vector<Player*>& _players, const int _id):
     players(_players), atu(none), dealer(_id) {
@@ -105,7 +105,7 @@ int Runda::tur(Runda &r, int id_init) {
     }
     if (Utilities::bate(r.atu, v[2], win_card, obl_culoare, r.puncte)) {
         id_winner = (id_init+2)%3;
-        win_card = v[2];
+        //win_card = v[2];
     }
     if (r.players[0]->humanStrategy()) {
         std::cout << "\nCartile din acest tur:\n";
@@ -169,7 +169,7 @@ void Runda::rezultate() {
     // mai ai de pus punctele undeva
 }
 
-void Runda::returnareCarti(Runda &r) {
+void Runda::returnareCarti(const Runda &r) {
     Pachet& pachet = Pachet::getInstance();
     std::vector<Carte>* pack = pachet.getPachet();
     for (auto& p: r.players) {
@@ -182,7 +182,7 @@ void Runda::returnareCarti(Runda &r) {
     }
 }
 
-void Runda::afisPctRunda(Runda &r) {
+void Runda::afisPctRunda(const Runda &r) {
     std::cout << "Rezultatele rundei:\n";
     for (auto& x: r.players) {
         std::cout << x->getName() << ": " <<  x->get_pct_runda() << "\n";

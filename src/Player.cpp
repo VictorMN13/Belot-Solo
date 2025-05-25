@@ -33,7 +33,7 @@ std::string Player::getName() {
     return name;
 }
 
-int Player::get_pct_runda() {
+int Player::get_pct_runda() const {
     return pct_runda;
 }
 
@@ -44,7 +44,7 @@ int Player::taiereCarti() {
     return distrib(gen);
 }
 
-bool Player::humanStrategy() {
+bool Player::humanStrategy() const {
     if (dynamic_cast<OmJoacaStrategy*>(joaca_strategy.get()))
         return true;
     else

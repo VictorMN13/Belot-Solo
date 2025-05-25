@@ -6,7 +6,6 @@
 #include "AtuStrategy.h"
 #include "JoacaStrategy.h"
 #include "Puncte.h"
-#include "Utilities.h"
 
 class Player {
 protected:
@@ -36,9 +35,9 @@ public:
     virtual Culoare alegeAtu(int) = 0;
     virtual Carte joaca(std::vector<Carte>&, bool, Puncte&, Culoare atu, int) = 0;
     void set_pct_runda(int _pct_runda);
-    int get_pct_runda();
+    int get_pct_runda() const;
     std::string getName();
     static int taiereCarti();
-    bool humanStrategy();
+    bool humanStrategy() const;
 };
 

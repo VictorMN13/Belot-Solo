@@ -57,7 +57,7 @@ bool Carte::operator<(const Carte &carte) const {
         return false;
 }
 
-std::string Carte::afisCuloare(Culoare c) {
+std::string Carte::afisCuloare(const Culoare c) {
         switch (c) {
             case pica: return "♠";
             case trefla: return "♣";

@@ -1,6 +1,7 @@
 #include "../include/Utilities.h"
+#include <windows.h>
 
-bool Utilities::bate(Culoare &atu, const Carte &a, const Carte &b, const Culoare &obl, Puncte &puncte) {
+bool Utilities::bate(const Culoare &atu, const Carte &a, const Carte &b, const Culoare &obl, Puncte &puncte) {
     const bool a_atu = a.getCuloare() == atu;
     const bool b_atu = b.getCuloare() == atu;
     if (a_atu && !b_atu)

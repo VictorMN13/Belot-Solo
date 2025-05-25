@@ -1,5 +1,4 @@
 #include "../include/Om.h"
-#include <unordered_map>
 #include <exception>
 #include <limits>
 #include "../include/OmAtuStrategy.h"
@@ -19,7 +18,7 @@ bool Om::joacaAtu(Culoare c) {
     }
 }
 
-void Om::afisareHand() {
+void Om::afisareHand() const {
     std::cout << hand;
 }
 

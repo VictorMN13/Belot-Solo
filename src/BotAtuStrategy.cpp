@@ -1,7 +1,7 @@
 #include "../include/BotAtuStrategy.h"
 #include <map>
 
-Culoare BotAtuStrategy::alegere(const PlayHand &hand, int idDealer, int idPlayer) {
+Culoare BotAtuStrategy::alegere(const PlayHand &hand, const int idDealer, const int idPlayer) {
     std::map<Culoare, int> frecv;
     for (const auto& carte : (*hand.getHand())) {
         frecv[carte.getCuloare()]++;

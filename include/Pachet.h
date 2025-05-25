@@ -4,7 +4,7 @@
 
 class Pachet: public ContainerCarti {
     Pachet();
-    ~Pachet();
+    ~Pachet() override;
 public:
     Pachet(const Pachet&) = delete;
     Pachet& operator=(const Pachet&) = delete;

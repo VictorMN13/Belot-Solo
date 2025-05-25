@@ -1,8 +1,6 @@
 #pragma once
-#include <iostream>
 #include <map>
 #include "Carte.h"
-#include "Pachet.h"
 
 class Puncte {
     std::map<Carte, int> punctaj_carti;

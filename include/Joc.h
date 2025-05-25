@@ -1,13 +1,7 @@
 #pragma once
-#include "Runda.h"
 #include "tIstoric.h"
-#include "BotAtuStrategy.h"
 #include "Om.h"
-#include <algorithm>
-#include "Bot.h"
-#include "OmAtuStrategy.h"
-#include "BotJoacaStrategy.h"
-#include "OmJoacaStrategy.h"
+#include "Pachet.h"
 
 class Joc {
     std::vector<Istoric<int, std::vector<std::string>>*> log;
@@ -18,7 +12,7 @@ class Joc {
 public:
     Joc();
     ~Joc();
-    void modOm();
+    void modOm() const;
     void createPlayers();
     void joacaRunda(int);
     void fullGame();

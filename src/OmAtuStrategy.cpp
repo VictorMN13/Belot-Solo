@@ -15,7 +15,7 @@ Culoare OmAtuStrategy::alegere(const PlayHand &hand, int idDealer, int idPlayer)
     std::string s;
     std::cin >> s;// tratare exceptii lipsa
 
-    if (map_input.find(s) == map_input.end()) {
+    if (!map_input.contains(s)) {
         throw AtuInvalidException();  // Input invalid (nu exista in map)
     }
 
