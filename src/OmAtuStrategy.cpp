@@ -1,5 +1,7 @@
-#include "OmAtuStrategy.h"
+#include "../include/OmAtuStrategy.h"
 #include <unordered_map>
+#include "../include/Exceptii.h"
+#include <limits>
 
 Culoare OmAtuStrategy::alegere(const PlayHand &hand, int idDealer, int idPlayer) {
     std::unordered_map<std::string, Culoare> map_input = {
@@ -9,26 +11,31 @@ Culoare OmAtuStrategy::alegere(const PlayHand &hand, int idDealer, int idPlayer)
         {"4", inima},
         {"0", none}
     };
-    std::cout << "alegeti atu sau da pass\n";
-    if (idPlayer== idDealer) {
-        std::cout << "sunteti obligat sa alegeti un atu si sa jucati runda\n";
-    }
-    std::cout << "Optiuni\n";
-    std::cout << "1 - pica\n";
-    std::cout << "2 - trefla\n";
-    std::cout << "3 - diamant\n";
-    std::cout << "4 - inima\n";
-    std::cout << "0 - niciun atu (pass)\n";
+
     std::string s;
     std::cin >> s;// tratare exceptii lipsa
-    return map_input[s];
+
+    if (map_input.find(s) == map_input.end()) {
+        throw AtuInvalidException();  // Input invalid (nu exista in map)
+    }
+
+    Culoare ales = map_input[s];
+
+    if (idPlayer == idDealer && ales == none) {
+        throw PasInterzisException();
+    }
+
+    return ales;
 }
 
- bool OmAtuStrategy::jucare(const Culoare c, PlayHand &) {
+ bool OmAtuStrategy::jucare(const Culoare c, PlayHand &hand) {
     int aux;
-    std::cout << "Joci acest atu?\n";
-    std::cin >> aux;
+    if (!(std::cin >> aux)) {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        throw InputExceptionAtu();
+    }
+
     return aux!=0;
-    //lipsa exceptii
  }
 

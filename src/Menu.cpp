@@ -73,7 +73,8 @@ void Menu::afisareReguli() {
 }
 
 void Menu::newGame() {
-
+    Joc j;
+    j.fullGame();
 }
 
 void Menu::afisareLogJoc() {

@@ -32,8 +32,8 @@ std::vector<Carte>* Pachet::getPachet() const {
     return this->getContainer();
 }
 
-void Pachet::taiere(std::vector<Carte>* carti, int x) {
-    std::rotate(carti->begin(), carti->begin() + (carti->size()-x), carti->end());
+void Pachet::taiere(std::vector<Carte>* carti, const int x) {
+    std::ranges::rotate(*carti, carti->begin() + (carti->size()-x));
 }
 
 Pachet& Pachet::getInstance() {

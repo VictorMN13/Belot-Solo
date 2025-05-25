@@ -80,12 +80,22 @@ int Runda::tur(Runda &r, int id_init) {
     int id_winner;
     Carte win_card;
     std::vector<Carte>& v = tur_carti.get_carti();
-    Carte c1 = r.players[id_init]->joaca(v, true, r.puncte, r.atu, r.declarant);
+
+    Carte c1 = r.players[id_init]->joaca(v, r.atu_free, r.puncte, r.atu, r.declarant);
     v.push_back(c1);
-    c1 = r.players[(id_init+1)%3]->joaca(v, true, r.puncte, r.atu, r.declarant);
+    if (c1.getCuloare() == r.atu && id_init == r.declarant)
+        r.atu_free = true;
+
+    c1 = r.players[(id_init+1)%3]->joaca(v, r.atu_free, r.puncte, r.atu, r.declarant);
     v.push_back(c1);
-    c1 = r.players[(id_init+2)%3]->joaca(v, true, r.puncte, r.atu, r.declarant);
+    if (c1.getCuloare() == r.atu && (id_init+1)%3 == r.declarant)
+        r.atu_free = true;
+
+    c1 = r.players[(id_init+2)%3]->joaca(v, r.atu_free, r.puncte, r.atu, r.declarant);
     v.push_back(c1);
+    if (c1.getCuloare() == r.atu && (id_init+1)%3 == r.declarant)
+        r.atu_free = true;
+
     Culoare obl_culoare = v[0].getCuloare();
     if (Utilities::bate(r.atu, v[0], v[1], obl_culoare, r.puncte)) {
         id_winner = (id_init)%3;
@@ -169,7 +179,6 @@ void Runda::afisPctRunda(Runda &r) {
     for (auto& x: r.players) {
         std::cout << x->getName() << ": " <<  x->get_pct_runda() << "\n";
     }
-    std::cout << "\n";
 }
 
 

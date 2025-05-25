@@ -17,6 +17,7 @@ class Joc {
 public:
     Joc();
     ~Joc();
+    void modOm();
     void createPlayers();
     void joacaRunda(int) const;
     void fullGame();

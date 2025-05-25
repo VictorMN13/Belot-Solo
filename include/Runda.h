@@ -13,6 +13,7 @@ class Runda {
     int declarant = -1;
     Puncte puncte;
     std::vector<std::string> log;
+    bool atu_free = false;
 public:
     Runda(const std::vector<Player*> &, int);
     ~Runda() = default;
