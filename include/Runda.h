@@ -25,4 +25,5 @@ public:
     void desfasoara();
     void rezultate();
     static void returnareCarti(Runda&);
+    std::vector<std::string> getLog();
 };

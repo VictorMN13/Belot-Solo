@@ -1,4 +1,6 @@
 #include "../include/Runda.h"
+
+#include "../include/OmJoacaStrategy.h"
 #include "../include/Pachet.h"
 #include "../include/PlayHand.h"
 #include "../include/Player.h"
@@ -51,6 +53,7 @@ void Runda::impartireCarti(Runda& r) {
                 if (rs_player != none) {
                     setDeclarant(r, i % 3);
                     setAtu(r, rs_player);
+                    break;
                 };
             }
         }
@@ -62,17 +65,13 @@ void Runda::impartireCarti(Runda& r) {
     r.puncte.set_pct(r.atu);
     std::cout << "Runda este jucata de: " << r.players[r.declarant]->getName() << " cu atu-ul: " << Carte::afisCuloare(r.atu) << "\n";
     for (int i=0; i<3; i++) {
-        p1.add(carti_r->back());
+        r.players[r.declarant%3]->getPHand()->add(carti_r->back());
         carti_r->pop_back();
-        p2.add(carti_r->back());
+        r.players[(r.declarant+1)%3]->getPHand()->add(carti_r->back());
         carti_r->pop_back();
-        p3.add(carti_r->back());
+        r.players[(r.declarant+2)%3]->getPHand()->add(carti_r->back());
         carti_r->pop_back();
     }
-
-    r.players[(r.dealer+1)%3]->setHand(p1);
-    r.players[(r.dealer+2)%3]->setHand(p2);
-    r.players[r.dealer]->setHand(p3);
 }
 
 int Runda::tur(Runda &r, int id_init) {
@@ -108,6 +107,15 @@ int Runda::tur(Runda &r, int id_init) {
         id_winner = (id_init+2)%3;
         win_card = v[2];
     }
+    if (r.players[0]->humanStrategy()) {
+        std::cout << "\nCartile din acest tur:\n";
+        for (auto carte: v) {
+            std::cout << carte << " ";
+        }
+        std::cout << std::endl;
+        std::cout << "Tur castigat de jucatorul: " << r.players[id_winner]->getName() << std::endl;
+    }
+
     CardsWon& plWon = *r.players[id_winner]->getCardsWon();
     plWon += tur_carti;
     return id_winner;
@@ -118,7 +126,7 @@ void Runda::desfasoara() {
     for (int i=0; i<8; i++) {
         int x = tur(*this, initiator);
         initiator = x;
-        log.push_back("Tur castigat de jucatorul: "+players[x]->getName()+'\n');
+        log.push_back("Tur castigat de jucatorul: "+players[x]->getName());
     }
 }
 
@@ -180,6 +188,11 @@ void Runda::afisPctRunda(Runda &r) {
         std::cout << x->getName() << ": " <<  x->get_pct_runda() << "\n";
     }
 }
+
+std::vector<std::string> Runda::getLog() {
+    return log;
+}
+
 
 
 

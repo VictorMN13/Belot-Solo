@@ -1,6 +1,5 @@
 #include "../include/OmJoacaStrategy.h"
-
-#include "Exceptii.h"
+#include "../include/Exceptii.h"
 
 Carte OmJoacaStrategy::miscare(std::vector<Carte> &pe_masa, bool atu_free, Puncte &pct, Culoare atu, PlayHand &hand, int id, int decl) {
     std::vector<Carte>& c = *hand.getHand();

@@ -3,6 +3,12 @@
 #include <string>
 #include <stdexcept>
 
+Menu::~Menu() {
+    for (const auto& x: log) {
+        delete x;
+    }
+}
+
 Menu& Menu::get_app() {
     static Menu menu;
     return menu;
@@ -73,13 +79,25 @@ void Menu::afisareReguli() {
 }
 
 void Menu::newGame() {
-    Joc j;
-    j.fullGame();
+    const auto j = new Joc();
+    j->fullGame();
+    this->log.clear();
+    for (auto ptr : j->returnLog()) {
+        this->log.push_back(new Istoric<int, std::vector<std::string>>(*ptr));
+    }
+    delete j;
 }
 
-void Menu::afisareLogJoc() {
+void Menu::afisareLogJoc() const {
     if (log.empty()) {
-
+        std::cout << "Nu s a jucat inca nici un joc\n";
+    } else {
+        for (const auto x: log) {
+            std::cout << "Runda " << x->getFirst() << "\n";
+            for (auto y: x->getSecond()) {
+                std::cout << y << "\n";
+            }
+        }
     }
 
 }

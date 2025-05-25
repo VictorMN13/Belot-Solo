@@ -7,7 +7,7 @@ bool Utilities::bate(Culoare &atu, const Carte &a, const Carte &b, const Culoare
         return true;
     if (!a_atu && b_atu)
         return false;
-    if (a.getCuloare()==obl && b.getCuloare()==obl)
+    if ((a.getCuloare()==obl && b.getCuloare()==obl) || b_atu)
         return puncte.getPct()->at(a) > puncte.getPct()->at(b);
     if (a.getCuloare()==obl)
         return true;

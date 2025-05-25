@@ -10,6 +10,7 @@
 #include "OmJoacaStrategy.h"
 
 class Joc {
+    std::vector<Istoric<int, std::vector<std::string>>*> log;
     static int round_g;
     std::vector<Player*> players;
     std::vector<Istoric<std::string, int>*> points;
@@ -19,7 +20,8 @@ public:
     ~Joc();
     void modOm();
     void createPlayers();
-    void joacaRunda(int) const;
+    void joacaRunda(int);
     void fullGame();
+    std::vector<Istoric<int, std::vector<std::string>>*> returnLog();
 };
 

@@ -1,5 +1,7 @@
 #include "../include/Player.h"
 #include "../include/PlayHand.h"
+#include <random>
+#include "../include/OmJoacaStrategy.h"
 
 int Player::id_gen = 0;
 
@@ -34,5 +36,20 @@ std::string Player::getName() {
 int Player::get_pct_runda() {
     return pct_runda;
 }
+
+int Player::taiereCarti() {
+    static std::random_device rd;
+    static std::mt19937 gen(rd());
+    std::uniform_int_distribution<> distrib(0, 23);
+    return distrib(gen);
+}
+
+bool Player::humanStrategy() {
+    if (dynamic_cast<OmJoacaStrategy*>(joaca_strategy.get()))
+        return true;
+    else
+        return false;
+}
+
 
 

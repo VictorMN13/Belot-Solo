@@ -11,6 +11,9 @@ Joc::~Joc() {
         delete players[i];
         delete points[i];
     }
+    for (const auto ist: log) {
+        delete ist;
+    }
 }
 
 void Joc::createPlayers() {
@@ -44,9 +47,10 @@ void Joc::createPlayers() {
     points.push_back(new Istoric<std::string, int>(x, 0));
 }
 
-void Joc::joacaRunda(int dealer) const {
+void Joc::joacaRunda(int dealer) {
     Pachet::amestecare(pachet.getPachet());
     Runda r(players, dealer);
+    Pachet::taiere(pachet.getPachet(), Player::taiereCarti());
     Runda::impartireCarti(r);
     r.desfasoara();
     r.rezultate();
@@ -56,6 +60,8 @@ void Joc::joacaRunda(int dealer) const {
     for (int i = 0; i <= 2; i++) {
         points[i]->addSecond(players[i]->get_pct_runda());
     }
+    log.push_back(new Istoric<int, std::vector<std::string>>((++round_g), r.getLog()));
+    std::cout << "==========" << Joc::round_g << std::endl;
 }
 
 void Joc::fullGame() {
@@ -71,13 +77,19 @@ void Joc::fullGame() {
         dealer = (dealer+1) % 3;
         toate101 = std::all_of(points.begin(), points.begin() + 3, [](const auto& p) {
                         return p->getSecond() < 101;});
+        std::cout << "\nPunctaj General:\n";
+        for (auto x: points) {
+            std::cout << x->getFirst() << " " << x->getSecond() << "\n";
+        }
         std::cout << "Apasa enter pentru urmatoarea runda\n";
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         std::cin.get();
         Utilities::clearScreen();
     }
-    for (int i = 0; i <= 2; i++) {
-        std::cout << points[i]->getSecond() << " ";
+
+    std::cout << "\nPunctaj final:\n";
+    for (auto x: points) {
+        std::cout << x->getFirst() << " " << x->getSecond() << "\n";
     }
     std::cout << std::endl;
 }
@@ -111,6 +123,11 @@ void Joc::modOm() {
         }
     }
 }
+
+std::vector<Istoric<int, std::vector<std::string>>*> Joc::returnLog() {
+    return this->log;
+}
+
 
 
 

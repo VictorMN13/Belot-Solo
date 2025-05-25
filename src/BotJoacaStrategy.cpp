@@ -1,5 +1,6 @@
 #include "../include/BotJoacaStrategy.h"
 #include <algorithm>
+#include <ranges>
 
 Carte BotJoacaStrategy::miscare(std::vector<Carte> &pe_masa, bool atu_free, Puncte &pct, Culoare atu, PlayHand &hand, int id, int decl) {
     std::map<Carte, int> p = *pct.getPct();

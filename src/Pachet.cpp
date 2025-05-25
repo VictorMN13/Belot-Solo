@@ -1,6 +1,7 @@
 #include "../include/Pachet.h"
 #include <random>
 #include <algorithm>
+#include <ranges>
 
 Pachet::Pachet() {
     //std::cout << "constructor fara perametru Pachet" << std::endl;

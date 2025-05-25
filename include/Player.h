@@ -38,5 +38,7 @@ public:
     void set_pct_runda(int _pct_runda);
     int get_pct_runda();
     std::string getName();
+    static int taiereCarti();
+    bool humanStrategy();
 };
 
