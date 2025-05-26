@@ -59,7 +59,7 @@ void Menu::open() {
 void Menu::afisareReguli() {
     Utilities::clearScreen();
     try {
-        std::string numeFisier = "_Reguli_belot.txt";
+        std::string numeFisier = "Reguli_belot.txt";
         std::ifstream fisier(numeFisier);
         if (!fisier.is_open()) {
             throw std::runtime_error("Nu am putut deschide fisierul: " + numeFisier);
