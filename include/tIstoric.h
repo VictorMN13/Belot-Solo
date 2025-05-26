@@ -8,7 +8,7 @@ class Istoric {
     Istoric(T first, const U& second) : first(first), second(second) {}
     const T& getFirst();
     const U& getSecond();
-    void addSecond(const U& second);
+    void addSecond(const U& _second);
     ~Istoric() = default;
 
     // initializare ca <Player, int> cate puncte a acumulat playerul in runda resprectiva
@@ -26,6 +26,6 @@ const U& Istoric<T, U>::getSecond() {
 }
 
 template<class T, typename U>
-void Istoric<T, U>::addSecond(const U& second) {
-    this->second += second;
+void Istoric<T, U>::addSecond(const U& _second) {
+    this->second += _second;
 }
