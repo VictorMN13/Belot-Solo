@@ -3,7 +3,7 @@
 #include "../include/Exceptii.h"
 #include <limits>
 
-Culoare OmAtuStrategy::alegere(const PlayHand &hand, int idDealer, int idPlayer) {
+Culoare OmAtuStrategy::alegere([[maybe_unused]] const PlayHand &hand, int idDealer, int idPlayer) {
     std::unordered_map<std::string, Culoare> map_input = {
         {"1", pica},
         {"2", trefla},
