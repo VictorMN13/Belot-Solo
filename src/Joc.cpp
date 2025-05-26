@@ -15,7 +15,7 @@ Joc::Joc(): pachet(Pachet::getInstance()) {
 int Joc::round_g = 0;
 
 Joc::~Joc() {
-    for (int i = 0; i < players.size(); i++) {
+    for (size_t i = 0; i < players.size(); i++) {
         delete players[i];
         delete points[i];
     }

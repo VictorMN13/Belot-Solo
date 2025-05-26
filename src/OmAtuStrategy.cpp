@@ -19,7 +19,7 @@ Culoare OmAtuStrategy::alegere(const PlayHand &hand, int idDealer, int idPlayer)
         throw AtuInvalidException();  // Input invalid (nu exista in map)
     }
 
-    Culoare ales = map_input[s];
+    const Culoare ales = map_input[s];
 
     if (idPlayer == idDealer && ales == none) {
         throw PasInterzisException();
