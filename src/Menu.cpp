@@ -95,9 +95,9 @@ void Menu::afisareLogJoc() const {
         std::cout << "\nNu s a jucat inca nici un joc\n";
     } else {
         std::cout << "\nRezumatul ultimului joc:\n";
-        for (const auto x: log) {
+        for (const auto& x: log) {
             std::cout << "Runda " << x->getFirst() << "\n";
-            for (auto y: x->getSecond()) {
+            for (const auto& y: x->getSecond()) {
                 std::cout << "    " << y << "\n";
             }
         }

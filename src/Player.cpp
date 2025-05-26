@@ -29,7 +29,7 @@ void Player::set_pct_runda(int _pct_runda) {
     pct_runda = _pct_runda;
 }
 
-std::string Player::getName() {
+const std::string& Player::getName() {
     return name;
 }
 
