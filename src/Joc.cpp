@@ -7,6 +7,8 @@
 #include "../include/OmAtuStrategy.h"
 #include "../include/Utilities.h"
 #include <algorithm>
+#include <iostream>
+#include <string>
 
 Joc::Joc(): pachet(Pachet::getInstance()) {
     round_g = 0;
@@ -34,12 +36,12 @@ void Joc::createPlayers() {
 
     std::string x;
     std::cout << "Introduceti nickname-ul dvs:\n";
-    getline(std::cin, x);
+    std::getline(std::cin, x);
     players.push_back(new Om(std::move(sa_om1), std::move(sj_om1), (x!="")? x : "OM"));
 
     x = "";
     std::cout << "Introduceti numele primului bot:\n";
-    getline(std::cin, x);
+    std::getline(std::cin, x);
     players.push_back(new Bot(std::move(sa_bot1), std::move(sj_bot1), (x!="")? x : "BOT1"));
 
     x = "";
