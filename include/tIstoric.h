@@ -7,7 +7,7 @@ class Istoric {
     public:
     Istoric(T first, U second) : first(first), second(second) {}
     T getFirst();
-    U getSecond();
+    const U& getSecond();
     void addSecond(U second);
     ~Istoric() = default;
 
@@ -21,7 +21,7 @@ T Istoric<T, U>::getFirst() {
 }
 
 template<class T, typename U>
-U Istoric<T, U>::getSecond() {
+const U& Istoric<T, U>::getSecond() {
     return second;
 }
 
