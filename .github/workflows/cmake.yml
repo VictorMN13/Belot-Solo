@@ -205,6 +205,7 @@ jobs:
           mkdir ${{ env.ZIP_NAME }}
           shopt -s dotglob
           mv artifacts/${{ env.BIN_DIR }}/* ${{ env.ZIP_NAME }}
+          cp Reguli_belot.txt ${{ env.ZIP_NAME }}
           ls -la ${{ env.ZIP_NAME }}
 
       - name: Process artifacts
