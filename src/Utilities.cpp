@@ -37,8 +37,10 @@ int Utilities::getTerminalWidth() {
     }
     return width;
 #else
-    struct winsize w;
-    ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
+    struct winsize w = {};
+    if (ioctl(STDOUT_FILENO, TIOCGWINSZ, &w) == -1) {
+        return 80; // fallback dacă ioctl eșuează
+    }
     return w.ws_col;
 #endif
 }

@@ -30,5 +30,4 @@
 
 5. Alte reguli:
    - Nu este permisă alegerea unei cărți invalide.
-   - În cazul unei alegeri greșite, vei primi o penalizare de -10.
    - Fii atent la atu și la cărțile deja jucate!
