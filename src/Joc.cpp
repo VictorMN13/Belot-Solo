@@ -34,12 +34,12 @@ void Joc::createPlayers() {
 
     std::string x;
     std::cout << "Introduceti nickname-ul dvs:\n";
-    std::getline(std::cin, x);
+    getline(std::cin, x);
     players.push_back(new Om(std::move(sa_om1), std::move(sj_om1), (x!="")? x : "OM"));
 
     x = "";
     std::cout << "Introduceti numele primului bot:\n";
-    std::getline(std::cin, x);
+    getline(std::cin, x);
     players.push_back(new Bot(std::move(sa_bot1), std::move(sj_bot1), (x!="")? x : "BOT1"));
 
     x = "";
