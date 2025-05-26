@@ -43,7 +43,7 @@ Pachet& Pachet::getInstance() {
 }
 
 std::ostream& operator<<(std::ostream& os, const Pachet& pachet) {
-    for (int i = 0; i <= pachet.carti->size() - 1; i++) {
+    for (size_t i = 0; i <= pachet.carti->size() - 1; i++) {
         os << (*pachet.carti)[i] << " ";
     }
     return os;

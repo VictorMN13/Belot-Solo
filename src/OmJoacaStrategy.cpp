@@ -1,7 +1,7 @@
 #include "../include/OmJoacaStrategy.h"
 #include "../include/Exceptii.h"
 
-Carte OmJoacaStrategy::miscare(std::vector<Carte> &pe_masa, bool atu_free, Puncte &pct, Culoare atu, PlayHand &hand, int id, int decl) {
+Carte OmJoacaStrategy::miscare(std::vector<Carte> &pe_masa, const bool atu_free, [[maybe_unused]] Puncte &pct, const Culoare atu, PlayHand &hand, const int id, const int decl) {
     std::vector<Carte>& c = *hand.getHand();
     std::map<Culoare, int> frecv;
     for (const auto& carte : c) {
@@ -13,7 +13,7 @@ Carte OmJoacaStrategy::miscare(std::vector<Carte> &pe_masa, bool atu_free, Punct
         throw InputExceptionJoaca();
     }
 
-    Carte aux = c[x-1];
+    const Carte aux = c[x-1];
 
     if (id != decl && !atu_free && aux.getCuloare() == atu && frecv.size() > 1 && frecv[atu] != static_cast<int>(c.size())) {
         throw AtuFreeException();

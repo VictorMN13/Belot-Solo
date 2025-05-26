@@ -28,7 +28,7 @@ Culoare OmAtuStrategy::alegere([[maybe_unused]] const PlayHand &hand, int idDeal
     return ales;
 }
 
- bool OmAtuStrategy::jucare(const Culoare c, PlayHand &hand) {
+ bool OmAtuStrategy::jucare([[maybe_unused]] const Culoare c, [[maybe_unused]] PlayHand &hand) {
     int aux;
     if (!(std::cin >> aux)) {
         std::cin.clear();
