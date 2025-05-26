@@ -21,11 +21,11 @@ void Runda::setAtu(Runda& ob, const Culoare c) {
 }
 
 void Runda::impartireCarti(Runda& r) {
-    Pachet& p = Pachet::getInstance();
+    const Pachet& p = Pachet::getInstance();
     std::vector<Carte>* carti_r = p.getPachet();
-    PlayHand p1;
-    PlayHand p2;
-    PlayHand p3;
+    const PlayHand p1;
+    const PlayHand p2;
+    const PlayHand p3;
     for (int i=0; i<5; i++) {
         p1.add(carti_r->back());
         carti_r->pop_back();
@@ -189,7 +189,7 @@ void Runda::afisPctRunda(const Runda &r) {
     }
 }
 
-std::vector<std::string> Runda::getLog() {
+const std::vector<std::string>& Runda::getLog() {
     return log;
 }
 

@@ -24,5 +24,5 @@ public:
     void desfasoara();
     void rezultate();
     static void returnareCarti(const Runda&);
-    std::vector<std::string> getLog();
+    const std::vector<std::string>& getLog();
 };
