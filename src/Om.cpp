@@ -18,10 +18,6 @@ bool Om::joacaAtu(Culoare c) {
     }
 }
 
-void Om::afisareHand() const {
-    std::cout << hand;
-}
-
 Culoare Om::alegeAtu(int d) {
     if (dynamic_cast<OmAtuStrategy*>(atu_strategy.get()) != nullptr) {
         std::cout << "Cartile tale: " << hand << "\n";

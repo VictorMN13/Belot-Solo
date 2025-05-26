@@ -8,8 +8,6 @@ class Istoric {
     Istoric(T first, U second) : first(first), second(second) {}
     T getFirst();
     U getSecond();
-    void setFirst(T first);
-    void setSecond(U second);
     void addSecond(U second);
     ~Istoric() = default;
 
@@ -25,16 +23,6 @@ T Istoric<T, U>::getFirst() {
 template<class T, typename U>
 U Istoric<T, U>::getSecond() {
     return second;
-}
-
-template<class T, typename U>
-void Istoric<T, U>::setFirst(T first) {
-    this->first = first;
-}
-
-template<class T, typename U>
-void Istoric<T, U>::setSecond(U second) {
-    this->second = second;
 }
 
 template<class T, typename U>

@@ -92,16 +92,20 @@ void Menu::newGame() {
 
 void Menu::afisareLogJoc() const {
     if (log.empty()) {
-        std::cout << "Nu s a jucat inca nici un joc\n";
+        std::cout << "\nNu s a jucat inca nici un joc\n";
     } else {
+        std::cout << "\nRezumatul ultimului joc:\n";
         for (const auto x: log) {
             std::cout << "Runda " << x->getFirst() << "\n";
             for (auto y: x->getSecond()) {
-                std::cout << y << "\n";
+                std::cout << "    " << y << "\n";
             }
         }
     }
-
+    std::cout << "Apasati enter pentru a iesi";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // curăță bufferul
+    std::cin.get();  // așteaptă Enter
+    Utilities::clearScreen();
 }
 
 
